@@ -5,10 +5,10 @@ import { api } from "@/services/api"
 export default function Dashboard(){
 
   useEffect(() => {
-    api.get('/me').then(response => {
-      return console.log(response)
-    }, [])
-  })
+    api.get('/me')
+    .then(response =>  console.log(response))
+    .catch(error => console.log(error));
+  }, [])
   const { user } = useContext(AuthContext)
   return(
     <h1>Dashboard: {user?.email}</h1>
